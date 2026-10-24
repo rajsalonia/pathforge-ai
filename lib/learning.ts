@@ -111,16 +111,16 @@ export function nodeState(node: SkillNode, state: Learner, now = Date.now()): st
 }
 
 const actionable = new Set(['available', 'attempted', 'needs-practice', 'revision']);
-function returnFromRecovery(state: Learner): SkillNode | undefined {
+function returnFromRecovery(state: Learner, now = Date.now()): SkillNode | undefined {
   for (const recovery of state.roadmap?.nodes ?? []) {
     if (!recovery.recovery || !nodeHasPass(recovery, state)) continue;
     const original = state.roadmap?.nodes.find(node => node.id === recovery.recovery!.forNodeId);
-    if (original && actionable.has(nodeState(original, state))) return original;
+    if (original && actionable.has(nodeState(original, state, now))) return original;
   }
 }
-export function nextNode(state: Learner): SkillNode | undefined {
+export function nextNode(state: Learner, now = Date.now()): SkillNode | undefined {
   const nodes = state.roadmap?.nodes ?? [];
-  return nodes.find(node => node.recovery && actionable.has(nodeState(node, state))) ?? returnFromRecovery(state) ?? nodes.find(node => actionable.has(nodeState(node, state)));
+  return nodes.find(node => node.recovery && actionable.has(nodeState(node, state, now))) ?? returnFromRecovery(state, now) ?? nodes.find(node => actionable.has(nodeState(node, state, now)));
 }
 
 /** A full available exercise that fits. Null means only a clearly labelled prep action fits. */
