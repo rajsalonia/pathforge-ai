@@ -1,4 +1,37 @@
-# vinext-starter
+# PathForge AI — Your Goal. Your Path. Your Proof.
+
+**An AI-powered adaptive learning universe that turns skill roadmaps into hands-on missions, interactive simulations, verified progress, and personalized learning journeys.**
+
+PathForge AI is inspired by the clarity of [roadmap.sh](https://roadmap.sh/), with a living skill graph that helps learners choose a goal, practice real skills, recover from knowledge gaps, build projects, and see what to learn next.
+
+### Highlights
+
+- **Living AI roadmaps:** Personalized skill paths and prerequisite-aware next steps.
+- **Learn by doing:** Coding, debugging, SQL, engineering scenarios, experiments, and concept simulations.
+- **Adaptive guidance:** Contextual hints, skill checks, and recovery paths.
+- **Meaningful motivation:** Visible milestones, achievements, XP, and learner progress.
+- **Build and demonstrate:** Project milestones and evidence-based skill portfolios.
+- **Accessible experience:** Bright, responsive learning interface with multilingual guidance.
+
+> **Status:** This is an evolving implementation. Individual capabilities and third-party AI availability depend on the current build and its deployment configuration. Do not interpret planned features as verified production functionality.
+
+### Development and deployment
+
+The current repository uses **Next.js/React/TypeScript**, **Vinext/Cloudflare Workers**, **Drizzle**, and **Cloudflare D1**. See [ENVIRONMENT.md](ENVIRONMENT.md) for environment, validation, and security requirements.
+
+```bash
+npm ci
+npm run dev
+npm run build
+```
+
+**GitHub About description (copy into repository settings):**
+> AI-powered adaptive learning with visual skill roadmaps, real-world missions, interactive simulations, verified progress & gamification.
+
+---
+
+## Engineering setup (original Vinext starter documentation)
+
 
 A clean full-stack starter running on [vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and Drizzle support.
 
