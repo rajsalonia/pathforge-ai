@@ -1,0 +1,435 @@
+@font-face {
+  font-family: "PathForge Inter";
+  src: url("/fonts/pathforge-inter-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PathForge Mono";
+  src: url("/fonts/pathforge-jetbrains-mono-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PathForge Devanagari";
+  src: url("/fonts/pathforge-devanagari.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+/* Scoped to the proposed workspace. Importing it cannot restyle the current app. */
+.pf-workspace {
+  --pf-canvas: #f7f8fa;
+  --pf-surface: #fff;
+  --pf-soft: #f1f3f6;
+  --pf-ink: #182230;
+  --pf-text: #526075;
+  --pf-muted: #5f6d81;
+  --pf-border: #dfe5ed;
+  --pf-line: #e9edf3;
+  --pf-accent: #4659df;
+  --pf-accent-hover: #3547c5;
+  --pf-accent-soft: #eef0ff;
+  --pf-success: #0c765c;
+  --pf-success-soft: #eaf6f0;
+  --pf-warning: #91520c;
+  --pf-warning-soft: #fff5e5;
+  --pf-danger: #b42e3a;
+  --pf-danger-soft: #fff0f1;
+  --pf-font:
+    "PathForge Inter", "PathForge Devanagari", "Noto Sans Devanagari",
+    system-ui, sans-serif;
+  --pf-mono:
+    "PathForge Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
+  --pf-radius: 12px;
+  --pf-shadow: 0 3px 12px rgb(24 34 48 / 4%);
+  --pf-space-1: 4px;
+  --pf-space-2: 8px;
+  --pf-space-3: 12px;
+  --pf-space-4: 16px;
+  --pf-space-5: 20px;
+  --pf-space-6: 24px;
+  --pf-space-8: 32px;
+  --pf-space-10: 40px;
+  color: var(--pf-ink);
+  background: var(--pf-canvas);
+  font: 400 15px/1.6 var(--pf-font);
+  color-scheme: light;
+  text-align: start;
+  letter-spacing: -0.012em;
+}
+.pf-workspace *,
+.pf-workspace *::before,
+.pf-workspace *::after {
+  box-sizing: border-box;
+}
+.pf-workspace :where(h1, h2, h3, h4, p, ul, ol) {
+  margin: 0;
+}
+.pf-workspace h1 {
+  font-size: clamp(28px, 3vw, 34px);
+  line-height: 1.25;
+  font-weight: 650;
+  letter-spacing: -0.035em;
+}
+.pf-workspace h2 {
+  font-size: 22px;
+  line-height: 1.35;
+  font-weight: 630;
+  letter-spacing: -0.025em;
+}
+.pf-workspace h3 {
+  font-size: 17px;
+  line-height: 1.4;
+  font-weight: 630;
+}
+.pf-workspace h4 {
+  font-size: 15px;
+  font-weight: 650;
+}
+.pf-workspace small {
+  font-size: 13px;
+  line-height: 1.5;
+}
+.pf-workspace :where(button, input, textarea, select) {
+  font: inherit;
+  letter-spacing: inherit;
+}
+.pf-workspace button {
+  cursor: pointer;
+}
+.pf-workspace button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+.pf-workspace svg {
+  flex: none;
+  vertical-align: middle;
+}
+.pf-workspace
+  :where(
+    button,
+    a,
+    input,
+    textarea,
+    select,
+    summary,
+    [tabindex]
+  ):focus-visible {
+  outline: 3px solid var(--pf-accent);
+  outline-offset: 4px;
+}
+.pf-workspace :where(input, textarea, select) {
+  color: var(--pf-ink);
+}
+.pf-workspace a {
+  color: var(--pf-accent);
+  text-underline-offset: 3px;
+}
+.pf-workspace ::selection {
+  background: #dfe4ff;
+  color: #182230;
+}
+.pf-workspace pre {
+  font: 13px/1.8 var(--pf-mono);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.pf-workspace .pf-muted {
+  color: var(--pf-muted);
+}
+.pf-workspace .pf-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.pf-workspace .pf-eyebrow {
+  color: var(--pf-muted);
+  font-size: 13px;
+  font-weight: 550;
+  margin-bottom: 8px;
+}
+.pf-workspace .pf-description {
+  color: var(--pf-text);
+  margin-top: 10px;
+  max-width: 65ch;
+}
+.pf-workspace .pf-panel {
+  border: 1px solid var(--pf-border);
+  background: var(--pf-surface);
+  border-radius: var(--pf-radius);
+  padding: 24px;
+}
+.pf-workspace .pf-page-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+.pf-workspace .pf-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.pf-workspace .pf-stack {
+  display: grid;
+  gap: 20px;
+}
+.pf-workspace .pf-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  border: 1px solid var(--pf-border);
+  border-radius: 9px;
+  padding: 10px 16px;
+  background: var(--pf-surface);
+  color: var(--pf-ink);
+  font-size: 14px;
+  font-weight: 550;
+  line-height: 1.4;
+  text-decoration: none;
+}
+.pf-workspace .pf-button:hover:not(:disabled) {
+  background: var(--pf-soft);
+  border-color: #c6d0df;
+}
+.pf-workspace .pf-button--primary {
+  background: var(--pf-accent);
+  color: #fff;
+  border-color: var(--pf-accent);
+}
+.pf-workspace .pf-button--primary:hover:not(:disabled) {
+  background: var(--pf-accent-hover);
+  border-color: var(--pf-accent-hover);
+}
+.pf-workspace .pf-button--quiet {
+  background: transparent;
+  border-color: transparent;
+  color: var(--pf-text);
+}
+.pf-workspace .pf-input {
+  display: block;
+  width: 100%;
+  min-height: 46px;
+  padding: 11px 14px;
+  background: var(--pf-surface);
+  border: 1px solid #c6d0df;
+  border-radius: 9px;
+  line-height: 1.5;
+}
+.pf-workspace .pf-input::placeholder {
+  color: var(--pf-muted);
+  opacity: 1;
+}
+.pf-workspace .pf-field {
+  display: grid;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 550;
+}
+.pf-workspace .pf-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  border-radius: 6px;
+  padding: 4px 8px;
+  background: var(--pf-soft);
+  color: var(--pf-text);
+  font-size: 12px;
+  line-height: 1.6;
+  font-weight: 550;
+}
+.pf-workspace .pf-badge--accent {
+  background: var(--pf-accent-soft);
+  color: var(--pf-accent-hover);
+}
+.pf-workspace .pf-badge--success {
+  background: var(--pf-success-soft);
+  color: var(--pf-success);
+}
+.pf-workspace .pf-badge--warning {
+  background: var(--pf-warning-soft);
+  color: var(--pf-warning);
+}
+.pf-workspace .pf-badge--danger {
+  background: var(--pf-danger-soft);
+  color: var(--pf-danger);
+}
+.pf-workspace .pf-progress {
+  height: 6px;
+  width: 100%;
+  border-radius: 3px;
+  background: var(--pf-soft);
+  overflow: hidden;
+}
+.pf-workspace .pf-progress > span {
+  display: block;
+  height: 100%;
+  background: var(--pf-accent);
+  border-radius: inherit;
+}
+.pf-workspace .pf-feedback {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--pf-soft);
+  border-radius: 9px;
+  padding: 16px;
+  font-size: 14px;
+}
+.pf-workspace .pf-feedback strong {
+  display: block;
+  font-weight: 600;
+}
+.pf-workspace .pf-feedback svg {
+  margin-top: 2px;
+}
+.pf-workspace .pf-feedback--success {
+  background: var(--pf-success-soft);
+  color: var(--pf-success);
+}
+.pf-workspace .pf-feedback--warning {
+  background: var(--pf-warning-soft);
+  color: var(--pf-warning);
+}
+.pf-workspace .pf-feedback--danger {
+  background: var(--pf-danger-soft);
+  color: var(--pf-danger);
+}
+.pf-workspace .pf-empty {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  padding: 56px 24px;
+  gap: 12px;
+}
+.pf-workspace .pf-empty p {
+  color: var(--pf-text);
+  max-width: 48ch;
+}
+.pf-workspace .pf-empty-icon {
+  color: var(--pf-accent);
+  margin-bottom: 4px;
+}
+.pf-workspace .pf-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  border-bottom: 1px solid var(--pf-border);
+  margin-bottom: 24px;
+}
+.pf-workspace .pf-tabs button {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  min-height: 48px;
+  padding: 10px 16px;
+  color: var(--pf-text);
+}
+.pf-workspace .pf-tabs button[aria-current] {
+  color: var(--pf-accent);
+  border-bottom-color: var(--pf-accent);
+  font-weight: 600;
+}
+.pf-dialog {
+  max-height: calc(100dvh - 32px);
+  width: min(560px, calc(100% - 32px));
+  border: 1px solid var(--pf-border);
+  border-radius: 16px;
+  padding: 0;
+  box-shadow: 0 20px 80px rgb(24 34 48 / 15%);
+}
+.pf-dialog::backdrop {
+  background: rgb(24 34 48 / 45%);
+}
+.pf-dialog-body {
+  padding: 28px;
+}
+.pf-dialog-body > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.pf-skeleton {
+  display: grid;
+  gap: 16px;
+  padding: 24px;
+}
+.pf-skeleton > div {
+  background: var(--pf-soft);
+  height: 24px;
+  border-radius: 6px;
+}
+.pf-skeleton > div:nth-child(2) {
+  width: 75%;
+  height: 120px;
+}
+.pf-spinner {
+  animation: pf-spin 1s linear infinite;
+}
+@keyframes pf-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (max-width: 600px) {
+  .pf-workspace .pf-page-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .pf-workspace .pf-panel {
+    padding: 20px;
+  }
+  .pf-dialog-body {
+    padding: 20px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pf-workspace *,
+  .pf-workspace *::before,
+  .pf-workspace *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+.pf-workspace[data-reduced-motion="true"] *,
+.reduce-motion .pf-workspace * {
+  animation: none !important;
+  transition: none !important;
+}
+.pf-workspace[data-large-text="true"] {
+  font-size: 17px;
+}
+.pf-workspace[data-large-text="true"]
+  :where(p, button, input, textarea, select) {
+  font-size: 1.05em;
+}
+.pf-workspace :where(h1, h2, h3, h4, p, strong, label) {
+  overflow-wrap: anywhere;
+}
+.pf-workspace .pf-page-heading > div,
+.pf-workspace .pf-field {
+  min-width: 0;
+}
+.pf-workspace :where(input, textarea, select) {
+  min-width: 0;
+  max-width: 100%;
+}
+.pf-workspace summary {
+  min-height: 44px;
+}

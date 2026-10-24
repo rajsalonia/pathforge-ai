@@ -1,0 +1,327 @@
+.pf-map-summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  font-size: 13px;
+  color: var(--pf-text);
+}
+.pf-map-summary > .pf-progress {
+  width: 160px;
+}
+.pf-map-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 24px;
+  align-items: start;
+}
+.pf-workspace .pf-map-panel {
+  padding: 0;
+  overflow: hidden;
+}
+.pf-map-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--pf-border);
+}
+.pf-map-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--pf-muted);
+  min-width: 0;
+}
+.pf-workspace .pf-map-search input {
+  border: none;
+  min-height: 44px;
+  width: 100%;
+  min-width: 0;
+  background: none;
+  font-size: 14px;
+}
+.pf-map-canvas {
+  height: 570px;
+  position: relative;
+  overflow: hidden;
+  background: var(--pf-canvas);
+  cursor: grab;
+  touch-action: none;
+}
+.pf-map-canvas:active {
+  cursor: grabbing;
+}
+.pf-map-world {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: top left;
+}
+.pf-map-edges {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+}
+.pf-map-edges path {
+  fill: none;
+  stroke: #b9c4d6;
+  stroke-width: 2;
+}
+.pf-map-edges path.pf-edge-active {
+  stroke: var(--pf-accent);
+}
+.pf-workspace .pf-map-node {
+  position: absolute;
+  width: 240px;
+  height: 120px;
+  background: var(--pf-surface);
+  border: 1px solid #c7d0de;
+  border-radius: 10px;
+  padding: 14px 16px;
+  text-align: start;
+  color: var(--pf-ink);
+  box-shadow: var(--pf-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.pf-map-node > strong {
+  font-size: 15px;
+  line-height: 1.4;
+  font-weight: 600;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.pf-map-node > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  color: var(--pf-text);
+}
+.pf-map-node .pf-map-node-number {
+  font-size: 12px;
+  color: var(--pf-muted);
+}
+.pf-workspace .pf-map-node--verified {
+  border-left: 3px solid var(--pf-success);
+}
+.pf-map-node--verified > span:last-child,
+.pf-map-node--completed > span:last-child {
+  color: var(--pf-success);
+}
+.pf-workspace .pf-map-node--blocked {
+  background: var(--pf-soft);
+  border-style: dashed;
+}
+.pf-map-node--revision > span:last-child,
+.pf-map-node--needs-practice > span:last-child {
+  color: var(--pf-warning);
+}
+.pf-workspace .pf-map-node--selected {
+  outline: 2px solid var(--pf-accent);
+  outline-offset: 3px;
+}
+.pf-workspace .pf-map-node--dim {
+  opacity: 0.35;
+}
+.pf-map-controls {
+  border-top: 1px solid var(--pf-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: var(--pf-muted);
+}
+.pf-map-controls > span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.pf-map-controls > span > svg:nth-of-type(2) {
+  margin-left: 10px;
+}
+.pf-map-controls > div {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+.pf-map-controls .pf-button {
+  padding: 10px;
+  min-width: 44px;
+}
+.pf-map-controls output {
+  font: 12px var(--pf-mono);
+  min-width: 40px;
+  text-align: center;
+}
+.pf-map-inspector {
+  display: grid;
+  gap: 18px;
+}
+.pf-map-inspector h2 {
+  font-size: 21px;
+  overflow-wrap: anywhere;
+}
+.pf-map-inspector h3 {
+  padding-top: 4px;
+  font-size: 14px;
+}
+.pf-map-inspector p,
+.pf-map-inspector > small {
+  color: var(--pf-text);
+  font-size: 14px;
+}
+.pf-map-inspector > small {
+  font-size: 12px;
+}
+.pf-milestone-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  color: var(--pf-muted);
+  font-size: 13px;
+  border-bottom: 1px solid var(--pf-line);
+  padding-bottom: 18px;
+}
+.pf-map-inspector ul {
+  padding-left: 0;
+  list-style: none;
+  display: grid;
+  gap: 4px;
+}
+.pf-map-inspector li button {
+  border: none;
+  background: none;
+  color: var(--pf-accent);
+  text-align: start;
+  padding: 10px 0;
+  min-height: 44px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.pf-roadmap-list {
+  display: none;
+  list-style: none;
+  padding: 0;
+}
+.pf-roadmap-list--visible {
+  display: block;
+}
+.pf-map-visual--hidden {
+  display: none;
+}
+.pf-roadmap-list li + li {
+  border-top: 1px solid var(--pf-line);
+}
+.pf-workspace .pf-roadmap-list button {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-align: start;
+  width: 100%;
+  border: 0;
+  background: none;
+  color: var(--pf-ink);
+  padding: 20px;
+}
+.pf-roadmap-list button[aria-pressed="true"] {
+  background: var(--pf-accent-soft);
+}
+.pf-roadmap-list button > div {
+  flex: 1;
+  min-width: 0;
+}
+.pf-roadmap-list strong,
+.pf-roadmap-list small {
+  display: block;
+}
+.pf-roadmap-list strong {
+  font-size: 15px;
+  font-weight: 550;
+}
+.pf-roadmap-list small {
+  margin-top: 4px;
+  color: var(--pf-muted);
+}
+.pf-step-icon {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--pf-border);
+  border-radius: 50%;
+  color: var(--pf-text);
+  flex: none;
+}
+.pf-step-icon--accent {
+  color: var(--pf-accent);
+  border-color: var(--pf-accent);
+}
+.pf-step-icon--success {
+  color: var(--pf-success);
+  background: var(--pf-success-soft);
+  border-color: transparent;
+}
+.pf-step-icon--warning {
+  color: var(--pf-warning);
+  background: var(--pf-warning-soft);
+  border-color: transparent;
+}
+.pf-map-scope {
+  font-size: 13px;
+  color: var(--pf-text);
+  margin-top: 24px;
+}
+.pf-map-scope summary {
+  padding: 12px 0;
+  cursor: pointer;
+}
+.pf-map-scope p {
+  max-width: 90ch;
+}
+.pf-map-no-results {
+  padding: 24px;
+  color: var(--pf-text);
+  font-size: 14px;
+}
+@media (max-width: 1200px) {
+  .pf-map-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .pf-map-inspector {
+    grid-template-columns: 1fr;
+  }
+  .pf-map-canvas {
+    height: 520px;
+  }
+}
+@media (max-width: 700px) {
+  .pf-map-visual {
+    display: none;
+  }
+  .pf-roadmap-list {
+    display: block;
+  }
+  .pf-map-toolbar > .pf-button {
+    display: none;
+  }
+  .pf-map-summary {
+    gap: 12px;
+  }
+  .pf-map-summary > .pf-progress {
+    width: 100px;
+  }
+  .pf-map-layout {
+    gap: 20px;
+  }
+}
